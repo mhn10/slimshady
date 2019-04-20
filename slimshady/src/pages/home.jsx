@@ -13,7 +13,9 @@ const openHandler = () => {
             {
                 params: {
                     Action: "SendMessage",
-                    MessageBody: "open"
+                    MessageBody: {
+                        "operation" : "open"
+                    }
                 }
             }
         )
@@ -24,7 +26,6 @@ const openHandler = () => {
             console.log("error", error);
         });
 };
-
 
 const closeHandler = () => {
     console.log("close Pressed");
@@ -35,7 +36,9 @@ const closeHandler = () => {
             {
                 params: {
                     Action: "SendMessage",
-                    MessageBody: "close"
+                    MessageBody: {
+                        "operation" : "close"
+                    }
                 }
             }
         )
@@ -47,7 +50,6 @@ const closeHandler = () => {
         });
 };
 
-
 const autoHandler = () => {
     console.log("Auto Pressed");
 
@@ -57,7 +59,9 @@ const autoHandler = () => {
             {
                 params: {
                     Action: "SendMessage",
-                    MessageBody: "auto"
+                    MessageBody:{
+                        "operation" : "auto"
+                    }
                 }
             }
         )
@@ -131,8 +135,8 @@ const Button = styled.button`
     cursor: pointer;
     width: 80px;
     &:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  }
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
     &::after {
         content: "";
         background: #6effff;
@@ -163,23 +167,22 @@ const AddDetailsWrapper = styled.div`
     box-sizing: border-box;
     border-radius: 10px;
     color: #606060;
-    z-index:2;
+    z-index: 2;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  &:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  }
-    ul{
+    transition: 0.3s;
+    &:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+    ul {
         padding: 0;
-		margin: 0;
-		list-style: none;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-gap: 1rem;
-		height: 100%;
-        justify-items:center;
+        margin: 0;
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+        height: 100%;
+        justify-items: center;
         align-items: center;
-        
     }
 `;
 
@@ -188,7 +191,7 @@ const BodyWrapper = styled.div`
     display: grid;
     margin-top: 70px;
     /* transform: skew(-5deg) rotate(10deg); */
-    transform : skew(0deg, 20deg);
+    transform: skew(0deg, 20deg);
 
     @media screen and (min-width: 992px) {
         margin-top: 150px;
