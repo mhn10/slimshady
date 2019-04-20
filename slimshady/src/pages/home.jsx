@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 import { PageWrapper } from "../components/Page";
 import axios from "axios";
-
+import Weekly from "../components/DataPicker";
 const openHandler = () => {
     console.log("Open Pressed");
 
@@ -110,6 +110,7 @@ const AddPage = ({ props }) => {
                                 </li>
                             </ul>
                         </AddDetailsWrapper>
+                       <Weekly />
                     </section>
                 </PageWrapper>
             </BodyWrapper>
@@ -158,7 +159,7 @@ const Button = styled.button`
     }
 `;
 
-const AddDetailsWrapper = styled.div`
+export const AddDetailsWrapper = styled.div`
     background: white;
     border: 2px solid #f8f8f8;
     margin-top: 2rem;
