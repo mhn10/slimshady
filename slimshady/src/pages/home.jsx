@@ -14,7 +14,7 @@ const openHandler = () => {
                 params: {
                     Action: "SendMessage",
                     MessageBody: {
-                        "operation" : "open"
+                        "operaton" : "open"
                     }
                 }
             }
@@ -162,7 +162,7 @@ const Button = styled.button`
 export const AddDetailsWrapper = styled.div`
     background: white;
     border: 2px solid #f8f8f8;
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-left: 1rem;
     padding: 2rem;
     box-sizing: border-box;
@@ -190,12 +190,12 @@ export const AddDetailsWrapper = styled.div`
 const BodyWrapper = styled.div`
     padding: 1rem;
     display: grid;
-    margin-top: 70px;
+    
     /* transform: skew(-5deg) rotate(10deg); */
     transform: skew(0deg, 20deg);
 
     @media screen and (min-width: 992px) {
-        margin-top: 150px;
+        margin-top: 1rem;
         .page-content {
             display: grid;
             grid-template-columns: 1fr minmax(63%, 1fr) 1fr;

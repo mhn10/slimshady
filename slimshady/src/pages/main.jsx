@@ -14,6 +14,7 @@ class Main extends Component {
                 {/* <SvgModifier xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
       <polygon fill="white" points="0,100 100,0 100,100"/> */}
                 {/* </SvgModifier> */}
+                <StyledDiv> SlimShady </StyledDiv>
                 <Route exact path="/" component={Home} />
             </BackgroundDiv>
         );
@@ -32,6 +33,22 @@ const BackgroundDiv = styled.div`
     /* padding: 5rem; */
 `;
 
+
+const StyledDiv = styled.div`
+    font-family: AmaticSC;
+    transform : skew(0deg, 20deg);
+    margin-top: 2rem;
+    font-size: 7vw;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    @media screen and (min-width: 992px) {
+        font-size: 4vw;
+    }
+
+
+
+
+`;
 // const SvgModifier = styled.svg`
 // z-index:-1;
 //   position: absolute;

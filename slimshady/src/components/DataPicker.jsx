@@ -19,7 +19,8 @@ const Weekly = props => {
                 <li>
                     <RoundButton status={mondayStatus} onClick={()=> setMondayStatus(!mondayStatus)} label={"Monday"}>Monday</RoundButton>
                 </li>
-                <li>Monday</li>
+                <li>Monday </li>
+                
                 
                 <li>
                     <RoundButton status={tuesdayStatus} onClick={()=> setTuesdayStatus(!tuesdayStatus)} label={"Tuesday"}>Tuesday</RoundButton>
@@ -98,8 +99,8 @@ const RoundButton = styled.button`
     }
 
     @media screen and (min-width: 992px) {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         font-size: .6rem;
         font-weight: normal;
     }

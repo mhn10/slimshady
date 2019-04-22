@@ -31,3 +31,13 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+@font-face {
+  font-family: "AmaticSC";
+  font-weight: 900;
+  src: url("./fonts/AmaticSC-Regular.ttf");
+  src:
+  url("./fonts/AmaticSC-Regular.ttf") format('truetype');
+  }
