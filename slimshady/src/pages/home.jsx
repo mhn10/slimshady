@@ -14,7 +14,7 @@ const openHandler = () => {
                 params: {
                     Action: "SendMessage",
                     MessageBody: {
-                        "operaton" : "open"
+                        "operaton" : "open",
                     }
                 }
             }
@@ -110,8 +110,9 @@ const AddPage = ({ props }) => {
                                 </li>
                             </ul>
                         </AddDetailsWrapper>
-                       <Weekly />
+                        <Weekly />
                     </section>
+                   
                 </PageWrapper>
             </BodyWrapper>
         </>
@@ -159,7 +160,7 @@ const Button = styled.button`
     }
 `;
 
-export const AddDetailsWrapper = styled.div`
+const AddDetailsWrapper = styled.div`
     background: white;
     border: 2px solid #f8f8f8;
     margin-top: 1rem;
