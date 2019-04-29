@@ -1,91 +1,136 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
-import TimeInput from 'react-time-input';
+import MomentUtils from '@date-io/moment';
+
+import {TimePicker, MuiPickersUtilsProvider} from "material-ui-pickers";
+
 
 const Weekly = props => {
-  const [mondayStatus, setMondayStatus] = useState(false);
-  const [tuesdayStatus, setTuesdayStatus] = useState(false);
-  const [wednesdayStatus, setWednesdayStatus] = useState(false);
-  const [thursdayStatus, setThursdayStatus] = useState(false);
-  const [fridayStatus, setFridayStatus] = useState(false);
-  const [saturdayStatus, setSaturdayStatus] = useState(false);
-  const [sundayStatus, setSundayStatus] = useState(false);
+    const [mondayStatus, setMondayStatus] = useState(false);
+    const [tuesdayStatus, setTuesdayStatus] = useState(false);
+    const [wednesdayStatus, setWednesdayStatus] = useState(false);
+    const [thursdayStatus, setThursdayStatus] = useState(false);
+    const [fridayStatus, setFridayStatus] = useState(false);
+    const [saturdayStatus, setSaturdayStatus] = useState(false);
+    const [sundayStatus, setSundayStatus] = useState(false);
+
+
+    const [selectedDate, handleDateChange] = useState(new Date());
+
+
+    const dataChangeHandler = (e) => {
+        console.log("time has been altered" , e._d)
+        };
 
     return (
         <AddDetailsWrapper>
+             <MuiPickersUtilsProvider utils={MomentUtils}>
             <ul>
-                
                 <li>
-                    <RoundButton status={mondayStatus} onClick={()=> setMondayStatus(!mondayStatus)} label={"Monday"}>Monday</RoundButton>
+                    <RoundButton
+                        status={mondayStatus}
+                        onClick={() => setMondayStatus(!mondayStatus)}
+                        label={"Monday"}
+                    >
+                        Monday
+                    </RoundButton>
                 </li>
                 <li>Monday </li>
-               
-                <li><TimeInput
-   			
-   			ref="TimeInputWrapper"
-   			className='form-control'
-   			mountFocus='true'
-   			onTimeChange={this.onTimeChangeHandler}
-   		/></li>
-                <li><TimeInput
-   	
-   			ref="TimeInputWrapper"
-   			className='form-control'
-   			mountFocus='true'
-   			onTimeChange={this.onTimeChangeHandler}
-   		/></li>
-                
+
                 <li>
-                    <RoundButton status={tuesdayStatus} onClick={()=> setTuesdayStatus(!tuesdayStatus)} label={"Tuesday"}>Tuesday</RoundButton>
+                <TimePicker id="monday" value={selectedDate} onChange={dataChangeHandler} />
+                
+                </li>
+                <li>
+                <TimePicker value={selectedDate} onChange={handleDateChange} />
+                </li>
+
+                <li>
+                    <RoundButton
+                        status={tuesdayStatus}
+                        onClick={() => setTuesdayStatus(!tuesdayStatus)}
+                        label={"Tuesday"}
+                    >
+                        Tuesday
+                    </RoundButton>
                 </li>
                 <li>Tuesday</li>
-                <li></li>
-                <li></li>
+                <li />
+                <li />
                 <li>
-                    <RoundButton status={wednesdayStatus} onClick={()=> setWednesdayStatus(!wednesdayStatus)} label={"Wednesday"}>Wednesday</RoundButton>
+                    <RoundButton
+                        status={wednesdayStatus}
+                        onClick={() => setWednesdayStatus(!wednesdayStatus)}
+                        label={"Wednesday"}
+                    >
+                        Wednesday
+                    </RoundButton>
                 </li>
                 <li>Wednesday </li>
-                <li></li>
-                <li></li>
+                <li />
+                <li />
 
                 <li>
-                    <RoundButton status={thursdayStatus} onClick={()=> setThursdayStatus(!thursdayStatus)} label={"Thursday"}>Thursday</RoundButton>
+                    <RoundButton
+                        status={thursdayStatus}
+                        onClick={() => setThursdayStatus(!thursdayStatus)}
+                        label={"Thursday"}
+                    >
+                        Thursday
+                    </RoundButton>
                 </li>
                 <li>Thursday</li>
-                <li></li>
-                <li></li>
+                <li />
+                <li />
 
                 <li>
-                    <RoundButton status={fridayStatus} onClick={()=> setFridayStatus(!fridayStatus)} label={"Friday"}>Friday</RoundButton>
+                    <RoundButton
+                        status={fridayStatus}
+                        onClick={() => setFridayStatus(!fridayStatus)}
+                        label={"Friday"}
+                    >
+                        Friday
+                    </RoundButton>
                 </li>
                 <li>Friday</li>
-                <li></li>
-                <li></li>
+                <li />
+                <li />
 
                 <li>
-                    <RoundButton status={saturdayStatus} onClick={()=> setSaturdayStatus(!saturdayStatus)} label={"Saturday"}>Saturday</RoundButton>
+                    <RoundButton
+                        status={saturdayStatus}
+                        onClick={() => setSaturdayStatus(!saturdayStatus)}
+                        label={"Saturday"}
+                    >
+                        Saturday
+                    </RoundButton>
                 </li>
                 <li>Saturday</li>
-                <li></li>
-                <li></li>
+                <li />
+                <li />
 
                 <li>
-                    <RoundButton status={sundayStatus} onClick={()=> setSundayStatus(!sundayStatus)} label={"Sunday"}>Sunday</RoundButton>
+                    <RoundButton
+                        status={sundayStatus}
+                        onClick={() => setSundayStatus(!sundayStatus)}
+                        label={"Sunday"}
+                    >
+                        Sunday
+                    </RoundButton>
                 </li>
                 <li>Sunday</li>
-                <li></li>
-                <li></li>
-
+                <li />
+                <li />
             </ul>
+            </MuiPickersUtilsProvider>
         </AddDetailsWrapper>
     );
 };
 export default withRouter(Weekly);
 
 const RoundButton = styled.button`
-    background: ${(props) =>
-			props.status === true ? '#2196F3' : '#c5d8d3'};
+    background: ${props => (props.status === true ? "#2196F3" : "#c5d8d3")};
     text-align: center;
     width: 35px;
     height: 35px;
@@ -131,12 +176,10 @@ const RoundButton = styled.button`
     @media screen and (min-width: 992px) {
         width: 60px;
         height: 60px;
-        font-size: .6rem;
+        font-size: 0.6rem;
         font-weight: normal;
     }
 `;
-
-
 
 const AddDetailsWrapper = styled.div`
     background: white;

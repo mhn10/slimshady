@@ -14,7 +14,7 @@ const openHandler = () => {
                 params: {
                     Action: "SendMessage",
                     MessageBody: {
-                        "operaton" : "open",
+                        "operation" : "open",
                     }
                 }
             }
