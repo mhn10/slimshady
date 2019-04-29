@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 import MomentUtils from '@date-io/moment';
-
+import * as moment from 'moment';
 import {TimePicker, MuiPickersUtilsProvider} from "material-ui-pickers";
 
 
@@ -17,12 +17,31 @@ const Weekly = props => {
 
 
     const [selectedDate, handleDateChange] = useState(new Date());
+    const [mondayStart, setMondayStart] = useState(new Date());
+    const [tuesdayStart, setTuesdayStart] = useState(new Date());
+    const [wednesdayStart, setWednesdayStart] = useState(new Date());
+    const [thursdayStart, setThursdayStart] = useState(new Date());
+    const [fridayStart, setFridayStart] = useState(new Date());
+    const [saturdayStart, setSaturdayStart] = useState(new Date());
+    const [sundayStart, setSundayStart] = useState(new Date());
+
+    const [mondayEnd, setMondayEnd] = useState(new Date());
+    const [tuesdayEnd, setTuesdayEnd] = useState(new Date());
+    const [wednesdayEnd, setWednesdayEnd] = useState(new Date());
+    const [thursdayEnd, setThursdayEnd] = useState(new Date());
+    const [fridayEnd, setFridayEnd] = useState(new Date());
+    const [saturdayEnd, setSaturdayEnd] = useState(new Date());
+    const [sundayEnd, setSundayEnd] = useState(new Date());
+    
+    
 
 
     const dataChangeHandler = (e) => {
         console.log("time has been altered" , e._d)
         };
-
+        const sendHandle = (e) => {
+            console.log("send has been clicked")
+            };
     return (
         <AddDetailsWrapper>
              <MuiPickersUtilsProvider utils={MomentUtils}>
@@ -39,13 +58,16 @@ const Weekly = props => {
                 <li>Monday </li>
 
                 <li>
-                <TimePicker id="monday" value={selectedDate} onChange={dataChangeHandler} />
+                <TimePicker id="monday" value={mondayStart} onChange={setMondayStart} />
                 
                 </li>
                 <li>
-                <TimePicker value={selectedDate} onChange={handleDateChange} />
+                <TimePicker value={mondayEnd} onChange={setMondayEnd} />
                 </li>
 
+                <li onClick={sendHandle}> 
+                    ->
+                </li>     
                 <li>
                     <RoundButton
                         status={tuesdayStatus}
@@ -56,8 +78,16 @@ const Weekly = props => {
                     </RoundButton>
                 </li>
                 <li>Tuesday</li>
-                <li />
-                <li />
+                <li>
+                <TimePicker id="TuesdayStart" value={tuesdayStart} onChange={setTuesdayStart} />
+                
+                </li>
+                <li>
+                <TimePicker id="TuesdayEnd" value={tuesdayEnd} onChange={setTuesdayEnd} />
+                </li>
+                <li> 
+                    ->
+                </li>  
                 <li>
                     <RoundButton
                         status={wednesdayStatus}
@@ -68,9 +98,16 @@ const Weekly = props => {
                     </RoundButton>
                 </li>
                 <li>Wednesday </li>
-                <li />
-                <li />
-
+                <li>
+                <TimePicker id="WednesdayStart" value={wednesdayStart} onChange={setWednesdayStart} />
+                
+                </li>
+                <li>
+                <TimePicker id="WednesdayEnd" value={wednesdayEnd} onChange={setWednesdayEnd} />
+                </li>
+                <li> 
+                    ->
+                </li>  
                 <li>
                     <RoundButton
                         status={thursdayStatus}
@@ -81,9 +118,16 @@ const Weekly = props => {
                     </RoundButton>
                 </li>
                 <li>Thursday</li>
-                <li />
-                <li />
-
+                <li>
+                <TimePicker id="ThursdayStart" value={thursdayStart} onChange={setThursdayStart} />
+                
+                </li>
+                <li>
+                <TimePicker id="ThursdayEnd" value={thursdayEnd} onChange={setThursdayEnd} />
+                </li>
+                <li> 
+                    ->
+                </li>  
                 <li>
                     <RoundButton
                         status={fridayStatus}
@@ -94,8 +138,16 @@ const Weekly = props => {
                     </RoundButton>
                 </li>
                 <li>Friday</li>
-                <li />
-                <li />
+                <li>
+                <TimePicker id="FridayStart" value={fridayStart} onChange={setFridayStart} />
+                
+                </li>
+                <li>
+                <TimePicker id="FridayEnd" value={fridayEnd} onChange={setFridayEnd} />
+                </li>
+                <li> 
+                    ->
+                </li>  
 
                 <li>
                     <RoundButton
@@ -107,9 +159,16 @@ const Weekly = props => {
                     </RoundButton>
                 </li>
                 <li>Saturday</li>
-                <li />
-                <li />
-
+                <li>
+                <TimePicker id="SaturdayStart" value={saturdayStart} onChange={setSaturdayStart} />
+                
+                </li>
+                <li>
+                <TimePicker id="SaturdayEnd" value={saturdayEnd} onChange={setSaturdayEnd} />
+                </li>
+                <li> 
+                    ->
+                </li>  
                 <li>
                     <RoundButton
                         status={sundayStatus}
@@ -120,8 +179,16 @@ const Weekly = props => {
                     </RoundButton>
                 </li>
                 <li>Sunday</li>
-                <li />
-                <li />
+                <li>
+                <TimePicker id="SundayStart" value={sundayStart} onChange={setSundayStart} />
+                
+                </li>
+                <li>
+                <TimePicker id="SundayEnd" value={sundayEnd} onChange={setSundayEnd} />
+                </li>
+                <li> 
+                    ->
+                </li>  
             </ul>
             </MuiPickersUtilsProvider>
         </AddDetailsWrapper>
@@ -201,7 +268,7 @@ const AddDetailsWrapper = styled.div`
         margin: 0;
         list-style: none;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr .5fr;
         grid-gap: 1rem;
         height: 100%;
         justify-items: center;
