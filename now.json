@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "my-react-app",
+  "name": "SlimShady",
   "builds": [
     {
       "src": "package.json",
